@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BiologEngine
 {
     /// <summary>
-    /// 
+    /// Класс для обьявления параметров до Ин
     /// </summary>
     public static class PreIntiliaze
     {
