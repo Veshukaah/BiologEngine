@@ -23,7 +23,7 @@ namespace BiologEngine
             graphics.Clear(Color.Black);
             for(int i = 0; i < sprites.Length; i++)
             {
-
+                
                 graphics.FillRectangle(sprites[i].brush, sprites[i].GetRectlange());
                 
             }

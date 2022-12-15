@@ -13,22 +13,22 @@ namespace BiologEngine
     /// </summary>
     public class GameObject 
     {
-        private Component[] components = new Component[] {new Transform(),new Renderer()};
+        private Component[] components = new Component[] {new Renderer()};
 
         /// <summary>
-        /// ССылка на движок.1
+        /// Ссылка на движок.
         /// </summary>
         public Engine engine;
         /// <summary>
-        /// 
+        /// Сылка на трансфрм.
         /// </summary>
-        public Transform transform { get { return (Transform)components[0];}}
+        public Transform transform { get;} = new Transform();
         
         /// <summary>
-        /// 
+        /// Ищет компонент.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="T">Тип компонента.</typeparam>
+        /// <returns>Возвращает компонент. </returns>
         public T GetComponent<T>()where T : Component
         {
             for(int i = 0; i < components.Length;i++)
@@ -43,29 +43,27 @@ namespace BiologEngine
 
 
         /// <summary>
-        /// 
+        /// Добавляет компанет.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="component"></param>
+        /// <typeparam name="T">Тип компенента. </typeparam>
+        /// <param name="component">Объект компонента.</param>
         public void AddComponent<T>(T component) where T : Component
         {
             components = components.Concat(new Component[] {component}).ToArray();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public Component[] GetAllComponents()
+        
+        internal Component[] GetAllComponents()
         {
             return components;
         }
 
         /// <summary>
-        /// 
+        /// Инцилизация компонента.
         /// </summary>
         public  void Initialize()
         {
+            transform.Initialize();
             for( int i = 0; i < components.Length; i++)
             {
                 components[i].engine = engine;
