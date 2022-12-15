@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace BiologEngine
 {
     /// <summary>
-    /// 
+    /// Физическое положение обьекта.
     /// </summary>
     public class Transform : Component
     {
