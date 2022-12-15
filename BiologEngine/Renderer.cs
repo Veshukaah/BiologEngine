@@ -9,13 +9,22 @@ using System.Windows.Forms;
 
 namespace BiologEngine
 {
+    /// <summary>
+    /// класс отоброжения.
+    /// </summary>
     public class Renderer : Component
     {
+        /// <summary>
+        /// Поле для изоброжения.
+        /// </summary>
         public Sprite sprite;
         
-        public Rectangle rectangle = new Rectangle();
         
-
+        
+        /// <summary>
+        /// Инциллизация объекты.
+        /// </summary>
+        /// <exception cref="ArgumentNullException">Отствуе ссылки на объекта</exception>
         public override void Initialize()
         {
             
@@ -27,8 +36,7 @@ namespace BiologEngine
             {
                 gameObject = gameObject,
                 renderer = this,
-                engine = engine,
-                rectangle = rectangle,
+                engine = engine,                
                 brush = sprite.brush
             };
             Pablicsprite.Initiliaze();

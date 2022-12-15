@@ -18,8 +18,6 @@ namespace BiologEngine
         
         public Renderer renderer;
         
-        public Rectangle rectangle;
-        
         public Brush brush;
         
         public Engine engine;
@@ -28,7 +26,6 @@ namespace BiologEngine
         public void Initiliaze()
         {
             if (gameObject == null) throw new ArgumentNullException();
-            if (rectangle == null) throw new ArgumentNullException();
             if (brush == null) throw new ArgumentNullException();
             if (engine == null) throw new ArgumentNullException();
             
