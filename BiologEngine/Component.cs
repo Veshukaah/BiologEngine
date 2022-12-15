@@ -13,16 +13,16 @@ namespace BiologEngine
     public class Component 
     {
         /// <summary>
-        /// Обезательная поле движка.
+        /// Ссылка на движок.
         /// </summary>
         public Engine engine;
         /// <summary>
-        /// Ссылка на gameObject.
+        /// Ссылка на влодельца компонента.
         /// </summary>
         public GameObject gameObject;
 
         /// <summary>
-        /// Метод инцилизации.
+        /// Метод интилизации.
         /// </summary>
         public virtual void Initialize()
         {

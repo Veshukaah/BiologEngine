@@ -8,20 +8,20 @@ using System.Windows.Forms;
 namespace BiologEngine
 {
     /// <summary>
-    /// Физическое положение обьекта.
+    /// 
     /// </summary>
     public class Transform : Component
     {
         /// <summary>
-        /// Позицая обьекта.
+        /// 
         /// </summary>
         public Vector2 position = new Vector2();
         /// <summary>
-        /// Поворот обьекта.
+        /// 
         /// </summary>
         public Vector2 rotation = new Vector2();
         /// <summary>
-        /// бубубу.
+        /// 
         /// </summary>
         public Vector2 scale = new Vector2();
 
