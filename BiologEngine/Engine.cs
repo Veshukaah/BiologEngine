@@ -12,64 +12,62 @@ using BiologEngine;
 namespace BiologeEngine
 {
     /// <summary>
-    /// 
+    /// Основной класс движка.
     /// </summary>
     public class Engine
     {
         /// <summary>
-        /// 
+        /// Делегат обновлений.
         /// </summary>
         public delegate void Updates();
         /// <summary>
-        /// 
+        /// Событие обновление.
         /// </summary>
         public event Updates UpdatingTheFrame;
-        /// <summary>
-        /// 
-        /// </summary>
-        public Timer UpdatesTimer = new Timer();
+        
+        internal Timer UpdatesTimer = new Timer();
 
         /// <summary>
-        /// 
+        /// Размер одного пикселя.
         /// </summary>
         public int onePixselSize = 10;
         /// <summary>
-        /// 
+        /// Высота экрана.
         /// </summary>
         public int Height;
         /// <summary>
-        /// 
+        /// Ширина экрана.
         /// </summary>
         public int Width;
 
         /// <summary>
-        /// 
+        /// Ссылка на форму.
         /// </summary>
         public Form1 form1;
         /// <summary>
-        /// 
+        /// Ссылка на компонент отрисовки.
         /// </summary>
         public Graphics graphics;
 
         /// <summary>
-        /// 
+        /// Спрайты.
         /// </summary>
         public Sprite[] sprites = new Sprite[1] {new Sprite(new SolidBrush(Color.White))};
 
         /// <summary>
-        /// 
+        /// Игровые обьекты.
         /// </summary>
         public GameObject[] gameObjects;
 
         /// <summary>
-        /// 
+        /// Класс игровова поля.ы
         /// </summary>
         public GameFied gameFied = new GameFied();
 
         internal Printer printer = new Printer();
 
         /// <summary>
-        /// 
+        /// Старт формы и движкаюъ.
         /// </summary>
         public static void StartEngine()
         {
@@ -79,9 +77,9 @@ namespace BiologeEngine
         }
         
         /// <summary>
-        /// 
+        /// Инцилизация движка.
         /// </summary>
-        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentNullException"> Ошибка отсутствя значения. </exception>
         public void InitializeEngine()
         {
 
@@ -129,12 +127,8 @@ namespace BiologeEngine
             
             
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <param name="e"></param>
-        public void UpdatingTheFrames(object obj,EventArgs e)
+        
+        internal void UpdatingTheFrames(object obj,EventArgs e)
         {
             UpdatingTheFrame.Invoke();
         }
