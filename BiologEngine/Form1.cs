@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace BiologeEngine
 {
+    /// <summary>
+    /// Форма экрана игры.
+    /// </summary>
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Ссылка на graphics. 
+        /// </summary>
         public Graphics graphics;
+        /// <summary>
+        /// Ссылка на движок.
+        /// </summary>
         public Engine engine = new Engine();
         
+        /// <summary>
+        /// Конструктор формы.
+        /// </summary>
         public Form1()
         {
             // InitializaComponent
