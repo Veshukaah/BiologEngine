@@ -10,36 +10,21 @@ using System.Windows.Forms;
 namespace BiologEngine
 {
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public class PublicGameSprite
+    
+    internal class PublicGameSprite
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public GameObject gameObject;
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public Renderer renderer;
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public Rectangle rectangle;
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public Brush brush;
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public Engine engine;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="ArgumentNullException"></exception>
+        
         public void Initiliaze()
         {
             if (gameObject == null) throw new ArgumentNullException();
@@ -49,10 +34,7 @@ namespace BiologEngine
             
             engine.printer.AddSprites(this);
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        
         public Rectangle GetRectlange()
         {
             return new Rectangle(
