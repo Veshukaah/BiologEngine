@@ -13,15 +13,15 @@ namespace BiologEngine
     public class Transform : Component
     {
         /// <summary>
-        /// 
+        /// Позицая обьекта.
         /// </summary>
         public Vector2 position = new Vector2();
         /// <summary>
-        /// 
+        /// Поворот обьекта.
         /// </summary>
         public Vector2 rotation = new Vector2();
         /// <summary>
-        /// 
+        /// Размер обьекта.
         /// </summary>
         public Vector2 scale = new Vector2();
 
