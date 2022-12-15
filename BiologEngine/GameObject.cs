@@ -9,14 +9,14 @@ using System.Windows.Forms;
 namespace BiologEngine
 {
     /// <summary>
-    /// 
+    /// Класс игровой обьект.
     /// </summary>
     public class GameObject 
     {
         private Component[] components = new Component[] {new Transform(),new Renderer()};
 
         /// <summary>
-        /// 
+        /// ССылка на движок.1
         /// </summary>
         public Engine engine;
         /// <summary>
