@@ -8,27 +8,27 @@ using System.Windows.Forms;
 namespace BiologEngine
 {
     /// <summary>
-    /// 
+    /// Параметры пространстенного положения объекта.
     /// </summary>
     public class Transform : Component
     {
         /// <summary>
-        /// 
+        /// Позицая объекта.
         /// </summary>
         public Vector2 position = new Vector2();
         /// <summary>
-        /// 
+        /// Поворот объекта.
         /// </summary>
         public Vector2 rotation = new Vector2();
         /// <summary>
-        /// 
+        /// Размер объекта.
         /// </summary>
         public Vector2 scale = new Vector2();
 
         /// <summary>
         /// ОБЕЗАТЕЛЬНАЯ функция перемещения.
         /// </summary>
-        /// <param name="newVector2">Позиция перемещения. </param>
+        /// <param name="newVector2">Новая позицая. </param>
         public void Move(Vector2 newVector2)
         {
 
