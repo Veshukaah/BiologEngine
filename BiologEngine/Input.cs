@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace BiologEngine
@@ -15,11 +16,11 @@ namespace BiologEngine
         /// <summary>
         /// Проверка нажата ли клавиша.
         /// </summary>
-        /// <param name="key">Клавиша для проверки.</param>
+        /// <param name="keys">Клавиша для проверки.</param>
         /// <returns>Нажата ли клавиша.</returns>
-        public static bool IsKeyDown(Key key)
+        public static bool IsKeyDown(Keys keys)
         {
-            if(Keyboard.IsKeyDown(key)) return true;
+            if(Keyboard.Modifiers.HasFlag(keys)) return true;
             return false;
         }
     }
