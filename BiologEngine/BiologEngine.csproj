@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="GameFied.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="PreIntiliaze.cs" />
     <Compile Include="Printer.cs" />
     <Compile Include="Program.cs" />
