@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BiologeEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,14 @@ namespace BiologEngine
         /// <param name="newVector2">Новая позицая. </param>
         public void Move(Vector2 newVector2)
         {
-
+            if (newVector2.x >= 0 && newVector2.x < engine.Width)
+            {
+                position.x = newVector2.x;
+            }
+            if(newVector2.y >= 0 && newVector2.y< engine.Height)
+            {
+                position.y = newVector2.y;
+            }
         }
     }
 }

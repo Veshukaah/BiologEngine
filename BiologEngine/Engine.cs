@@ -117,7 +117,7 @@ namespace BiologeEngine
             printer.Initialize();
 
 
-            gameFied.gameObject = new GameObject[Height, Width];
+            gameFied.gameObject = new GameObject[Height + 1, Width + 1];
 
             //Initialize UpdatesTimer
             UpdatesTimer.Tick += UpdatingTheFrames;
