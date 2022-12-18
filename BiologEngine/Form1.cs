@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BiologEngine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,9 +30,16 @@ namespace BiologeEngine
         /// </summary>
         public Form1()
         {
+            
             // InitializaComponent
             InitializeComponent();
             graphics = pictureBox2.CreateGraphics();
+
+
+            Input.Initialize();
+            Input.form1  = label1;
+            KeyDown += Input.ButtonDown;
+            KeyUp+= Input.ButtonUp;
 
             // InitializaEngine
             engine.form1 = this;
