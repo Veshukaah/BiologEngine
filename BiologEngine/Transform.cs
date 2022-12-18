@@ -32,11 +32,11 @@ namespace BiologEngine
         /// <param name="newVector2">Новая позицая. </param>
         public void Move(Vector2 newVector2)
         {
-            if (newVector2.x >= 0 && newVector2.x < engine.Width)
+            if (newVector2.x >= 0 && newVector2.x < engine.Width - 1)
             {
                 position.x = newVector2.x;
             }
-            if(newVector2.y >= 0 && newVector2.y< engine.Height)
+            if(newVector2.y >= 0 && newVector2.y< engine.Height - 1)
             {
                 position.y = newVector2.y;
             }
