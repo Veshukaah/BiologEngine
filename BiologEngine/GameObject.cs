@@ -63,6 +63,8 @@ namespace BiologEngine
         /// </summary>
         public  void Initialize()
         {
+            transform.engine= engine;
+            transform.gameObject = this;
             transform.Initialize();
             for( int i = 0; i < components.Length; i++)
             {
