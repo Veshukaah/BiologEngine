@@ -32,6 +32,7 @@ namespace BiologEngine
         /// <param name="newVector2">Новая позицая. </param>
         public void Move(Vector2 newVector2)
         {
+            
             if (newVector2.x >= 0 && newVector2.x < engine.Width)
             {
                 position.x = newVector2.x;
@@ -39,17 +40,6 @@ namespace BiologEngine
             if(newVector2.y >= 0 && newVector2.y< engine.Height)
             {
                 position.y = newVector2.y;
-            }
-        }
-        public void Print()
-        {
-            if (Input.GetKey(Keys.H))
-            {
-                Input.Print(engine.form1.pictureBox2.Size.Height.ToString());
-            }
-            if (Input.GetKey(Keys.J))
-            {
-                Input.Print(engine.Height.ToString());
             }
         }
     }
