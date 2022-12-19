@@ -85,6 +85,8 @@ namespace BiologeEngine
             Width = form1.pictureBox2.Size.Width / onePixselSize;
             Height = form1.pictureBox2.Size.Height / onePixselSize;
 
+            gameFied.gameObject = new GameObject[Height, Width];
+
             if (gameObjects == null) throw new ArgumentNullException();
             //Initialize sprites
             for(int i = 0; i < sprites.Length; i++)
@@ -103,8 +105,9 @@ namespace BiologeEngine
                     {
                         UpdatingTheFrame += (Updates)Delegate.CreateDelegate(typeof(Updates), gameObjects[i].GetAllComponents()[j], gameObjects[i].GetAllComponents()[j].GetType().GetMethod("Update"));
                     }
+                    gameObjects[i].Initialize();
                 }
-                gameObjects[i].Initialize();
+                
             }
 
 
@@ -115,7 +118,7 @@ namespace BiologeEngine
             printer.Initialize();
 
 
-            gameFied.gameObject = new GameObject[Height, Width];
+            
 
             //Initialize UpdatesTimer
             UpdatesTimer.Tick += UpdatingTheFrames;
