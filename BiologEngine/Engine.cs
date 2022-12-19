@@ -129,6 +129,28 @@ namespace BiologeEngine
             UpdatingTheFrame.Invoke();
         }
 
-
+        /// <summary>
+        /// Создает новый GameObject.
+        /// </summary>
+        /// <returns>Возвращает созданный GameObject.</returns>
+        public static GameObject CreateGameObject()
+        {
+            GameObject gameObject = new GameObject();
+            gameObject.transform.position = new Vector2(0,0);
+            gameObject.transform.scale= new Vector2(1,1);
+            return gameObject;
+        }
+        /// <summary>
+        /// Создает новый GameObject.
+        /// </summary>
+        /// <param name="position">Позицая нового объекта.</param>
+        /// <returns>Возвращает созданный GameObject.</returns>
+        public static GameObject CreateGameObject(Vector2 position)
+        {
+            GameObject gameObject = new GameObject();
+            gameObject.transform.position = position;
+            gameObject.transform.scale = new Vector2(1, 1);
+            return gameObject;
+        }
     }
 }
