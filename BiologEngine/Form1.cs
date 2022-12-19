@@ -33,6 +33,8 @@ namespace BiologeEngine
             
             // InitializaComponent
             InitializeComponent();
+            System.Windows.MessageBox.Show(pictureBox2.Size.Height.ToString());
+            pictureBox2.Size = new Size(610, 280);
             graphics = pictureBox2.CreateGraphics();
 
 

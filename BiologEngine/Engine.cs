@@ -84,8 +84,9 @@ namespace BiologeEngine
 
             gameObjects = PreIntiliaze.GameObjects;
             
-            Width = form1.pictureBox2.Size.Width;
-            Height = form1.pictureBox2.Size.Height;
+            
+            Width = form1.pictureBox2.Size.Width / onePixselSize;
+            Height = form1.pictureBox2.Size.Height / onePixselSize;
 
             if (gameObjects == null) throw new ArgumentNullException();
             //Initialize sprites

@@ -38,6 +38,13 @@ namespace BiologEngine
         {
             return Button[k];
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public static void Print(string mes)
+        {
+            form1.Text = mes;
+        }
         internal static void Initialize()
         {
             foreach(Keys keys in Enum.GetValues(typeof(Keys)))
