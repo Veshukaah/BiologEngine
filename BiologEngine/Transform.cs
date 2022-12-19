@@ -32,15 +32,16 @@ namespace BiologEngine
         /// <param name="newVector2">Новая позицая. </param>
         public void Move(Vector2 newVector2)
         {
-            
-            if (newVector2.x >= 0 && newVector2.x < engine.Width)
+            engine.gameFied.gameObject[position.y, position.x] = null;
+            if (newVector2.x >= 0 && newVector2.x < engine.Width && engine.gameFied.gameObject[position.y,newVector2.x] == null)
             {
                 position.x = newVector2.x;
             }
-            if(newVector2.y >= 0 && newVector2.y< engine.Height)
+            if(newVector2.y >= 0 && newVector2.y< engine.Height && engine.gameFied.gameObject[newVector2.y,position.x] == null)
             {
                 position.y = newVector2.y;
             }
+            engine.gameFied.gameObject[position.y, position.x] = gameObject;
         }
     }
 }
