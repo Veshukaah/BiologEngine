@@ -106,6 +106,7 @@ namespace BiologeEngine
                         UpdatingTheFrame += (Updates)Delegate.CreateDelegate(typeof(Updates), gameObjects[i].GetAllComponents()[j], gameObjects[i].GetAllComponents()[j].GetType().GetMethod("Update"));
                     }
                     gameObjects[i].Initialize();
+                    gameFied.gameObject[gameObjects[i].transform.position.y, gameObjects[i].transform.position.x] = gameObjects[i];
                 }
                 
             }
