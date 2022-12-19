@@ -75,11 +75,8 @@ namespace BiologeEngine
             Application.Run(new Form1());
         }
         
-        /// <summary>
-        /// Инцилизация движка.
-        /// </summary>
-        /// <exception cref="ArgumentNullException"> Ошибка отсутствюят данных. </exception>
-        public void InitializeEngine()
+        
+        internal void InitializeEngine()
         {
 
             gameObjects = PreIntiliaze.GameObjects;
@@ -131,5 +128,7 @@ namespace BiologeEngine
         {
             UpdatingTheFrame.Invoke();
         }
+
+
     }
 }
