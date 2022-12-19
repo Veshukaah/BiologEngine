@@ -27,6 +27,11 @@ namespace BiologEngine
         public Vector2 scale = new Vector2();
 
         /// <summary>
+        /// Позицая объекта относительно родителя.
+        /// </summary>
+        public Vector2 localPosition = new Vector2();
+
+        /// <summary>
         /// ОБЕЗАТЕЛЬНАЯ функция перемещения.
         /// </summary>
         /// <param name="newVector2">Новая позицая. </param>
@@ -42,6 +47,8 @@ namespace BiologEngine
                 position.y = newVector2.y;
             }
             engine.gameFied.gameObject[position.y, position.x] = gameObject;
+            gameObject.IMoved();
         }
+        
     }
 }

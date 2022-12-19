@@ -14,6 +14,9 @@ namespace BiologEngine
     public class GameObject 
     {
         private Component[] components = new Component[] {new Renderer()};
+        private GameObject[] childs = new GameObject[0];
+        private GameObject parent;
+
 
         /// <summary>
         /// Ссылка на движок.
@@ -59,6 +62,40 @@ namespace BiologEngine
         }
 
         /// <summary>
+        /// Устонавливает родителя.
+        /// </summary>
+        public void SetParent(GameObject parent)
+        {
+            this.parent = parent;
+        }
+        /// <summary>
+        /// Считать значение родителя.
+        /// </summary>
+        /// <returns>Возвращает родителя.</returns>
+        public GameObject GetParent()
+        {
+            return parent;
+        }
+        /// <summary>
+        /// Добавляет дочерний объект.
+        /// </summary>
+        /// <param name="newChild">Новый дочерний объект.</param>
+        public  void AddChild(GameObject newChild)
+        {
+             childs = childs.Concat(new GameObject[] { newChild }).ToArray();
+        }
+
+        /// <summary>
+        /// Возвращает дочерный объект по индексу.
+        /// </summary>
+        /// <param name="index">Индекс дочернего объекта.</param>
+        /// <returns>Дочерний объект.</returns>
+        public GameObject GetChild(int index)
+        {
+            return childs[index];
+        }
+
+        /// <summary>
         /// Инцилизация компонента.
         /// </summary>
         public  void Initialize()
@@ -73,6 +110,22 @@ namespace BiologEngine
                 components[i].Initialize();
             }
             
+        }
+
+        internal void IMoved()
+        {
+            if(parent != null)
+            {
+                transform.localPosition = transform.position - parent.transform.position;
+            }
+            for(int i = 0; i <= childs.Length; i++)
+            {
+                childs[i].MeMoved();
+            }
+        }
+        internal void MeMoved()
+        {
+            transform.Move(parent.transform.position + transform.localPosition);
         }
     }
 }
