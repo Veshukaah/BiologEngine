@@ -11,9 +11,9 @@ namespace BiologEngine
     /// <summary>
     /// Класс игровой обьект.
     /// </summary>
-    public class GameObject 
+    public class GameObject
     {
-        private Component[] components = new Component[] {new Renderer()};
+        private Component[] components = new Component[] { new Renderer() };
         private GameObject[] childs = new GameObject[0];
         private GameObject parent;
 
@@ -25,18 +25,18 @@ namespace BiologEngine
         /// <summary>
         /// Сылка на трансфрм.
         /// </summary>
-        public Transform transform { get;} = new Transform();
-        
+        public Transform transform { get; } = new Transform();
+
         /// <summary>
         /// Ищет компонент.
         /// </summary>
         /// <typeparam name="T">Тип компонента.</typeparam>
         /// <returns>Возвращает компонент. </returns>
-        public T GetComponent<T>()where T : Component
+        public T GetComponent<T>() where T : Component
         {
-            for(int i = 0; i < components.Length;i++)
+            for (int i = 0; i < components.Length; i++)
             {
-                if(components[i].GetType() == typeof(T))
+                if (components[i].GetType() == typeof(T))
                 {
                     return (T)components[i];
                 }
@@ -52,10 +52,10 @@ namespace BiologEngine
         /// <param name="component">Объект компонента.</param>
         public void AddComponent<T>(T component) where T : Component
         {
-            components = components.Concat(new Component[] {component}).ToArray();
+            components = components.Concat(new Component[] { component }).ToArray();
         }
 
-        
+
         internal Component[] GetAllComponents()
         {
             return components;
@@ -80,9 +80,10 @@ namespace BiologEngine
         /// Добавляет дочерний объект.
         /// </summary>
         /// <param name="newChild">Новый дочерний объект.</param>
-        public  void AddChild(GameObject newChild)
-        {
-             childs = childs.Concat(new GameObject[] { newChild }).ToArray();
+        public void AddChild(GameObject newChild)
+        { 
+            newChild.SetParent(this);
+            childs = childs.Concat(new GameObject[] { newChild }).ToArray();
         }
 
         /// <summary>
@@ -118,7 +119,7 @@ namespace BiologEngine
             {
                 transform.localPosition = transform.position - parent.transform.position;
             }
-            for(int i = 0; i <= childs.Length; i++)
+            for(int i = 0; i < childs.Length; i++)
             {
                 childs[i].MeMoved();
             }
@@ -126,6 +127,10 @@ namespace BiologEngine
         internal void MeMoved()
         {
             transform.Move(parent.transform.position + transform.localPosition);
+        }
+        public void Destroy()
+        {
+
         }
     }
 }
