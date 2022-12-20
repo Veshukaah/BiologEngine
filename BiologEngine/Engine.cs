@@ -96,7 +96,7 @@ namespace BiologeEngine
             //In
             for(int i = 0; i < gameObjects.Length; i++)
             {
-                MessageBox.Show(gameObjects[i].GetAllComponents().Length.ToString());
+                
                 gameObjects[i].engine = this;
                 for (int j = 0; j < gameObjects[i].GetAllComponents().Length; j++)
                 {
@@ -105,10 +105,10 @@ namespace BiologeEngine
                     {
                         UpdatingTheFrame += (Updates)Delegate.CreateDelegate(typeof(Updates), gameObjects[i].GetAllComponents()[j], gameObjects[i].GetAllComponents()[j].GetType().GetMethod("Update"));
                     }
-                    gameObjects[i].Initialize();
+                    
                     gameFied.gameObject[gameObjects[i].transform.position.y, gameObjects[i].transform.position.x] = gameObjects[i];
                 }
-                
+                gameObjects[i].Initialize();
             }
 
 
@@ -155,6 +155,15 @@ namespace BiologeEngine
             gameObject.transform.position = position;
             gameObject.transform.scale = new Vector2(1, 1);
             return gameObject;
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        public void Print(string a)
+        {
+            form1.label1.Text = a;
         }
     }
 }

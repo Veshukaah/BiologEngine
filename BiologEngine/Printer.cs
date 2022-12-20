@@ -24,6 +24,7 @@ namespace BiologEngine
             for(int i = 0; i < sprites.Length; i++)
             {
                 
+                
                 graphics.FillRectangle(sprites[i].brush, sprites[i].GetRectlange());
                 
             }
@@ -33,5 +34,7 @@ namespace BiologEngine
         {
             sprites = sprites.Concat(new PublicGameSprite[] {sprite }).ToArray();
         }
+        
+        
     }
 }

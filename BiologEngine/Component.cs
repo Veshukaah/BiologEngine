@@ -10,7 +10,7 @@ namespace BiologEngine
     /// <summary>
     /// Класс компонента.
     /// </summary>
-    public class Component 
+    public abstract class Component 
     {
         /// <summary>
         /// Ссылка на движок.
@@ -24,9 +24,10 @@ namespace BiologEngine
         /// <summary>
         /// Метод интилизации.
         /// </summary>
-        public virtual void Initialize()
-        {
-            
-        }
+        public abstract void Initialize();
+        /// <summary>
+        /// Удаляет объект.
+        /// </summary>
+        public abstract void Destroy();
     }
 }

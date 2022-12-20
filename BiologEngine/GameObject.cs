@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BiologeEngine.Engine;
 
 namespace BiologEngine
 {
@@ -128,9 +129,31 @@ namespace BiologEngine
         {
             transform.Move(parent.transform.position + transform.localPosition);
         }
+        /// <summary>
+        /// Уничтажает объект.
+        /// </summary>
         public void Destroy()
         {
-
+            for(int i = 0; i < engine.gameObjects.Length; i++)
+            {
+                if (engine.gameObjects[i] == this)
+                {
+                    engine.gameObjects = engine.gameObjects.Except(new GameObject[] {this}).ToArray();
+                    for(int j = 0; j  < GetAllComponents().Length; j++)
+                    {
+                        if (GetAllComponents()[j].GetType().GetMethod("Update") != null)
+                        {
+                            engine.UpdatingTheFrame -= (Updates)Delegate.CreateDelegate(typeof(Updates), GetAllComponents()[j], GetAllComponents()[j].GetType().GetMethod("Update")); 
+                        }
+                    }
+                }
+            }
+            for(int i = 0; i < GetAllComponents().Length;i++)
+            {
+                GetAllComponents()[i].Destroy();
+            }
+            transform.Destroy();
+            
         }
     }
 }

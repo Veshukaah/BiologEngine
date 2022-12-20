@@ -47,8 +47,18 @@ namespace BiologEngine
                 position.y = newVector2.y;
             }
             engine.gameFied.gameObject[position.y, position.x] = gameObject;
-            gameObject.IMoved();
+            
         }
-        
+        /// <inheritdoc/>
+        public override void Initialize()
+        {
+            
+        }
+        /// <inheritdoc/>
+        public override void Destroy()
+        {
+            engine.gameFied.gameObject[position.y, position.x] = null;
+        }
+
     }
 }

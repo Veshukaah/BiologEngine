@@ -18,30 +18,48 @@ namespace BiologEngine
         /// Поле для изоброжения.
         /// </summary>
         public Sprite sprite;
+
+        internal PublicGameSprite PublicGAmesprite;
+            
         
-        
-        
-        /// <summary>
-        /// Инциллизация объекты.
-        /// </summary>
-        /// <exception cref="ArgumentNullException">Отствуе ссылки на объекта</exception>
+        /// <inheritdoc/>
+        /// <exception cref="ArgumentNullException">Отствуе ссылки на объект.</exception>
         public override void Initialize()
         {
             
             if (gameObject == null) throw new ArgumentNullException("aaaaaaaaaaaaaaa");
             sprite = engine.sprites[0];
 
+            
 
-            var Pablicsprite = new PublicGameSprite
+            PublicGAmesprite = new PublicGameSprite
             {
                 gameObject = gameObject,
                 renderer = this,
                 engine = engine,                
                 brush = sprite.brush
             };
-            Pablicsprite.Initiliaze();
+            PublicGAmesprite.Initiliaze();
+        }
+        /// <inheritdoc/>
+        public override void Destroy()
+        {
             
+            engine.form1.graphics.FillRectangle(new SolidBrush(Color.Black), PublicGAmesprite.GetRectlange());
+            
+            for(int i = 0; i < engine.printer.sprites.Length;i++)
+            {
+                if (engine.printer.sprites[i] == PublicGAmesprite)
+                {
+                    
+                    List<PublicGameSprite> sprites = engine.printer.sprites.ToList();
+                    sprites.RemoveAt(i);
+                    engine.printer.sprites = sprites.ToArray();
+                    
 
+                }
+            }
+            
         }
     }
 }
