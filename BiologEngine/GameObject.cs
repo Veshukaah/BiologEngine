@@ -155,5 +155,33 @@ namespace BiologEngine
             transform.Destroy();
             
         }
+
+        /// <summary>
+        /// Создаёт новый объект.
+        /// </summary>
+        /// <param name="gameObject">Префаб объекта.</param>
+        /// <param name="position">Позиция копии.</param>
+        public GameObject Instante(GameObject gameObject,Vector2 position)
+        {
+            GameObject res = CreateGameObject(position);
+            res.childs = gameObject.childs;
+            res.parent = gameObject.parent;
+            res.components = gameObject.components;
+            res.engine = engine;
+
+            for (int j = 0; j < res.GetAllComponents().Length; j++)
+            {
+                if (res.GetAllComponents()[j].GetType().GetMethod("Update") != null)
+                {
+                    engine.UpdatingTheFrame += (Updates)Delegate.CreateDelegate(typeof(Updates), res.GetAllComponents()[j], res.GetAllComponents()[j].GetType().GetMethod("Update"));
+                }
+
+                engine.gameFied.gameObject[res.transform.position.y,  res.transform.position.x] = res;
+            }
+            engine.gameObjects = engine.gameObjects.Concat(new GameObject[] { res }).ToArray();
+            res.Initialize();
+            return res;
+        }
+        
     }
 }
