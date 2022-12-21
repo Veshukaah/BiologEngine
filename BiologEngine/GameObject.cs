@@ -163,6 +163,10 @@ namespace BiologEngine
         public void Destroy(Component component)
         {
             components = components.Except(new Component[] {component}).ToArray();
+            if (component.GetType().GetMethod("Update") != null)
+            {
+                engine.UpdatingTheFrame -= (Updates)Delegate.CreateDelegate(typeof(Updates), component, component.GetType().GetMethod("Update"));
+            }
             component.Destroy();
         }
 
