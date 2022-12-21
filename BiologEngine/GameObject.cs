@@ -12,7 +12,7 @@ namespace BiologEngine
     /// <summary>
     /// Класс игровой обьект.
     /// </summary>
-    public class GameObject
+    public class GameObject 
     {
         private Component[] components = new Component[] { new Renderer() };
         private GameObject[] childs = new GameObject[0];
@@ -157,17 +157,37 @@ namespace BiologEngine
         }
 
         /// <summary>
+        /// Уництожает компонент.
+        /// </summary>
+        /// <param name="component"></param>
+        public void Destroy(Component component)
+        {
+            components = components.Except(new Component[] {component}).ToArray();
+            component.Destroy();
+        }
+
+
+        /// <summary>
         /// Создаёт новый объект.
         /// </summary>
         /// <param name="gameObject">Префаб объекта.</param>
         /// <param name="position">Позиция копии.</param>
         public GameObject Instante(GameObject gameObject,Vector2 position)
         {
-            GameObject res = CreateGameObject(position);
-            res.childs = gameObject.childs;
-            res.parent = gameObject.parent;
-            res.components = gameObject.components;
-            res.engine = engine;
+            GameObject res = CreateGameObject();
+
+            res.transform.position = position;
+            res.engine = gameObject.engine;
+            res.components = new Component[gameObject.components.Length];
+            
+            for(int i = 0; i < gameObject.components.Length; i++)
+            {
+                res.components[i] = (Component)Activator.CreateInstance(gameObject.components[i].GetType());
+                res.components[i].gameObject = gameObject.components[i].gameObject;
+                res.components[i].engine = gameObject.components[i].engine;
+                res.Initialize();
+            }
+            
 
             for (int j = 0; j < res.GetAllComponents().Length; j++)
             {
@@ -183,5 +203,6 @@ namespace BiologEngine
             return res;
         }
         
+
     }
 }
